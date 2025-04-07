@@ -15,7 +15,17 @@ public class BurnTrees{
     //YOU MUST IMPLEMENT THIS METHOD
     //(BEFORE WRITING ANY CODE READ ALL OF THE CODE AND SEE HOW IT FITS TOGETHER)
     //HINT: do not check the board for fire which is an n^2 operation
-    return false;//placeholder for compilation purposes
+    boolean isFire = false;
+    int col = getTicks();
+    for (int i = 0; i < map.length; i++){
+      for (int j = 0; j <= col; j++){
+        if (map[i][j] == FIRE){
+          isFire = true;
+          break;
+        }
+      }
+    }
+    return isFire;
   }
 
   /*This is the core of the simulation. All of the logic for advancing to the next round goes here.
@@ -26,6 +36,32 @@ public class BurnTrees{
     ticks++;//leave this here.
     //YOU MUST IMPLEMENT THE REST OF THIS METHOD
     //(BEFORE WRITING ANY CODE READ ALL OF THE CODE AND SEE HOW IT FITS TOGETHER)
+    int[][]temp = new int[map.length][map[0].length];
+    for (int i = 0; i < map.length; i++){
+      for (int j = 0; j < map[0].length; j++){
+        temp[i][j] = map[i][j];
+      }
+    }
+    for (int k = 0; k < map.length; k++){
+      for (int l = 0; l < map[0].length; l++){
+        if (map[k][l] == FIRE){
+          if (map[k + 1][l] == TREE){
+            temp[k + 1][l] == FIRE;
+          }
+          if (map[k - 1][l] == TREE){
+            temp[k - 1][l] == FIRE;
+          }
+          if (map[k][l + 1] == TREE){
+            temp[k][l + 1] == FIRE;
+          }
+          if (map[k][l - 1] == TREE){
+            temp[k][l - 1] == FIRE;          
+          }
+          for (int )
+          temp[k][l] == ASH;
+        }
+      }
+    }
   }
 
   /***********************YOU MIGHT UPDATE THIS**************************/
